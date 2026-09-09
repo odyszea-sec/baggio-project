@@ -193,23 +193,56 @@ PORQUE EL GOBIERN-
                 <p id="mood-response" class="widget-response"></p>
             </div>
 
-            <!-- 🎡 RULETA DE MIMOS -->
-            <div class="widget-card ruleta-card">
-                <h3 class="widget-title">Ruleta de mimos 🎡</h3>
-                <p class="widget-sub">Girala y recibí un mimito random.</p>
-                <div class="ruleta-wrap">
-                    <div class="ruleta-pointer">▼</div>
-                    <div class="ruleta" id="ruleta">
-                        <span style="--i:0">✨</span>
-                        <span style="--i:1">🧃</span>
-                        <span style="--i:2">🏐</span>
-                        <span style="--i:3">💌</span>
-                        <span style="--i:4">🎶</span>
-                        <span style="--i:5">🌸</span>
-                        <span style="--i:6">🤗</span>
-                        <span style="--i:7">⭐</span>
-                    </div>
-                </div>
+     <!-- 🎡 RULETA DE MIMOS -->
+<div class="widget-card ruleta-card">
+    <h3 class="widget-title">Ruleta de mimos 🎡</h3>
+    <p class="widget-sub">Girala y recibí un mimito random.</p>
+    <div class="ruleta-wrap">
+        <div class="ruleta-pointer">▼</div>
+        <svg class="ruleta" id="ruleta" viewBox="0 0 200 200">
+            <!-- Gajo 0 -->
+            <g transform="rotate(0, 100, 100)">
+                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#ff79c6"/>
+                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">✨</text>
+            </g>
+            <!-- Gajo 1 -->
+            <g transform="rotate(45, 100, 100)">
+                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#bd93f9"/>
+                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">🧃</text>
+            </g>
+            <!-- Gajo 2 -->
+            <g transform="rotate(90, 100, 100)">
+                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#8be9fd"/>
+                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">🏐</text>
+            </g>
+            <!-- Gajo 3 -->
+            <g transform="rotate(135, 100, 100)">
+                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#ff5555"/>
+                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">💌</text>
+            </g>
+            <!-- Gajo 4 -->
+            <g transform="rotate(180, 100, 100)">
+                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#ff79c6"/>
+                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">🎶</text>
+            </g>
+            <!-- Gajo 5 -->
+            <g transform="rotate(225, 100, 100)">
+                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#bd93f9"/>
+                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">🌸</text>
+            </g>
+            <!-- Gajo 6 -->
+            <g transform="rotate(270, 100, 100)">
+                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#8be9fd"/>
+                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">🤗</text>
+            </g>
+            <!-- Gajo 7 -->
+            <g transform="rotate(315, 100, 100)">
+                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#ff5555"/>
+                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">⭐</text>
+            </g>
+        </svg>
+    </div>
+</div>
                 <button class="widget-btn" id="btn-ruleta">Girar</button>
                 <p id="ruleta-response" class="widget-response"></p>
             </div>
