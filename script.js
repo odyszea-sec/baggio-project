@@ -620,7 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
         juegoInterval = setInterval(() => {
             const corazon = document.createElement('button');
             corazon.className = 'juego-corazon';
-            corazon.textContent = '❤️';
+            corazon.textContent = '🤍';
             corazon.style.left = `${Math.random() * Math.max(areaWidth - 30, 10)}px`;
             corazon.style.animationDuration = `${2 + Math.random() * 1.5}s`;
             corazon.addEventListener('click', () => {
