@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Lalen✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Capa para la foto de fondo con blur -->
+    <div class="background-overlay"></div>
+
+    <!-- Audio global -->
+    <audio id="audio-principal" loop></audio>
+
+    <!-- 📱 MINI REPRODUCTOR GLOBAL (Soporta de 1 a 6 canciones) -->
+    <div class="player-iphone-global">
+        <img src="portada.jpg" alt="Portada" class="album-art" id="album-art">
+        <div class="track-info">
+            <h3 class="track-title" id="track-title">DtMF</h3>
+            <p class="track-artist" id="track-artist">Bad Bunny</p>
+        </div>
+        <div class="player-controls">
+            <button class="control-btn" id="btn-prev">⏮</button>
+            <button class="play-btn" id="btn-play">▶</button>
+            <button class="control-btn" id="btn-next">⏭</button>
+        </div>
+    </div>
+
+    <!-- 🏠 PANTALLA DE INICIO -->
+    <main class="container" id="inicio-screen">
+        <section class="hero">
+            <h1 class="title">no sos <span class="rainbow-text">invisible</span> para mi</h1>
+            <p class="subtitle">select an option</p>
+        </section>
+
+        <section class="main-buttons">
+            <button class="menu-btn" onclick="abrirSeccion('seccion-uno')">
+                <span class="icon">✨</span>
+                <span class="text">pedacito de estrella</span>
+            </button>
+            <button class="menu-btn" onclick="abrirSeccion('recuerdos-screen')">
+                <span class="icon">📸</span>
+                <span class="text">Cosas que me recuerdan a vos</span>
+            </button>
+            <button class="menu-btn" onclick="abrirSeccion('seccion-tres')">
+                <span class="icon">⭐</span>
+                <span class="text">Un recordatorio para hoy</span>
+            </button>
+        </section>
+    </main>
+
+    <!-- 📂 SECCIÓN 1: PARA VOS (Con florcita en la esquina) -->
+    <section id="seccion-uno" class="sub-screen hidden">
+        <button class="btn-back" onclick="volverAlInicio()">← Volver</button>
+        <div class="content-box" style="position: relative; padding-top: 50px;">
+
+            <!-- 🌸 FLORCITA EN HD -->
+            <img src="flor.png" alt="Flor" style="position: absolute; top: -25px; left: -25px; width: 70px; height: 70px; object-fit: contain;">
+
+            <h2 style="margin-bottom: 25px; color: var(--accent-color);">partecita de un astro ✨</h2>
+            <p style="line-height: 1.8; text-align: left; margin-bottom: 15px; white-space: pre-line;">Hablar de valentina es complicado, no porque sea dificil de entender si no porque intentar explicar con palabras a las personas asi
+se siente casi como una injusticia a lo que genera.
+alguien tan directo como yo, conoce casi todas sus partes y formas de reaccionar, yo la he visto enojada, feliz, tranquila, inquieta, nerviosa, indiferente, en extasiss, la conozco bastante y puedo decir con certeza total que es de las personas con menos maldad que existen, faltante total de maldad. eso no quiere decir que ella aveces no se exalte y te pegue un grito, si no que quiere decir que no lo hara con la intencion de lastimarte, no puede, y si pudiera se arrepentiria.
+
+Valentina tiene tantas cosas lindas que si me pongo a enlistarlas no terminaria nunca literalmente. tiene todavia esa escencia y bondad que solo tienen los niños, y tiene esas cosas inentendibles que solo tienen los adolescentes. es una mezcla inexplicable de virtudes incertidumbres e inseguridades, es como si una mujer y un hombre tuviera un hijo xdxdlol, na joda es como si mezclaras la nostalgia y ternura de Benedetti con la soledad de Pizarnik, la angustia existencial de sylvia plath con la euforia y esperanza de whitman, ese pequeño remordimiento que tenia alghieri  y los celos de Shakespeare.
+
+es todo eso y mucho mas que no puedo explicar pq aun no soy tan buen poeta.
+si en este instante me haces resumirla con una frase diria "Llena de Magia" porque eso es lo que es, magia pura, cada risa, cada reaccion, cada locura, cada chiste, cada pirueta innecesaria, todo en ella tiene esa magia.
+
+yo suelo ser bastante egocentrico pq se que en el fondo soy increible, si yo fuese ella, en mi vida me dignaria a arriesgar algo por los demas o a siquiera derramar una pequeña lagrima porque tendria MUY en cuenta lo increible que es.
+
+si yo soy la perla, ella seria todo lo contrario a mi, es encantadora, medalla olimpica de oro a la mas dulce, top 1 en hacer que este orgulloso cada dia, merece cada cosa buena que le pasa y todo lo malo es una injusticia injustificada. Pasar con ella un ratito es lo mejor que le podria pasar a cualquiera, Greenflag andante, tremenda obra de arte viva por dios
+
+el trato que recibe de los demas todos los dias es poco comparado con lo que merece, me entiendes? merece eso y mucho mas. fijate que la lealtad y la fidelidad es un idioma que SI entiende :v
+
+cuestion que valentina es de esas personas que brillan con una luz propia envidiable y de esas personas que te alegran el alma.
+
+Gracias por la entrevista señor plantin.
+
+:) porque no decis nada?
+
+
+hola?? estoy hablando solo?
+
+
+PORQUE EL GOBIERN-
+
+</p>
+        </div>
+    </section>
+
+    <!-- 📂 SECCIÓN 2: RECUERDOS (Con sus Polaroids flotantes) -->
+    <section id="recuerdos-screen" class="sub-screen hidden">
+        <button class="btn-back" onclick="volverAlInicio()">← Volver</button>
+
+        <!-- Contenedor de las Polaroids Flotantes (Lados) -->
+        <div class="polaroids-container">
+            <!-- Izquierda (2 fotos) -->
+            <div class="polaroid-lateral izq p-1" onclick="abrirRecuerdo(1)">
+                <img src="foto1.jpg" alt="Recuerdo 1">
+                <span>Recuerdo #1 📌</span>
+            </div>
+            <div class="polaroid-lateral izq p-2" onclick="abrirRecuerdo(2)">
+                <img src="foto2.jpg" alt="Recuerdo 2">
+                <span>Recuerdo #2 📌</span>
+            </div>
+
+            <!-- Derecha (3 fotos) -->
+            <div class="polaroid-lateral der p-3" onclick="abrirRecuerdo(3)">
+                <img src="foto3.jpg" alt="Recuerdo 3">
+                <span>Recuerdo #3 📌</span>
+            </div>
+            <div class="polaroid-lateral der p-4" onclick="abrirRecuerdo(4)">
+                <img src="foto4.jpg" alt="Recuerdo 4">
+                <span>Recuerdo #4 📌</span>
+            </div>
+            <div class="polaroid-lateral der p-5" onclick="abrirRecuerdo(5)">
+                <img src="foto5.jpg" alt="Recuerdo 5">
+                <span>Recuerdo #5 📌</span>
+            </div>
+        </div>
+
+        <div class="content-box" style="position: relative; max-width: 500px; padding: 45px 30px;">
+            <!-- 🏐 PELOTA DE VÓLEY -->
+            <img src="pelota.png" alt="Pelota" style="position: absolute; top: -25px; left: -25px; width: 65px; height: 65px; object-fit: contain; pointer-events: none;">
+
+            <!-- 🧃 JUGUITO BAGGIO -->
+            <img src="baggio.png" alt="Baggio" style="position: absolute; bottom: -25px; right: -25px; width: 55px; height: 65px; object-fit: contain; pointer-events: none;">
+
+            <h2 style="margin-bottom: 10px; color: var(--accent-color);">Cosas que me recuerdan a vos 📸</h2>
+            <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 25px;">Apoyá el cursor o tocá los bordes de la pantalla para ver las fotos o primero lee el texto que lo actualize, o hace lo que quieras.</p>
+
+            <p style="line-height: 1.8; text-align: left; white-space: pre-line; font-size: 0.95rem;">Hay miles de cosas que me hacen acordar a vos, ya sea en individual o en grupo con las chicas. Hay sensaciones que me traen recuerdos varios de vos siendo vos y es lindo. Aunque ahora que estoy re lejos es medio feo porque te extraño. Ya sean canciones, como todo el álbum DtMF, o algunas de Tan Biónica, Airbag... Cuando pienso en vóley pienso en jugar con vos y con los demás. Hasta la sensación de extrañar se siente como vos, porque vos siempre extrañas, sos muy nostálgica como yo. Cuando camino (una vez cada mil que salgo del psiquiatra) no puedo no imaginar lo lindo que sería que estés vos y los demás. tengo la galeria llena de recuerdos que llevo conmigo en el corazon y que son para mi una curita al alma y un motor para aguantar esto. se que falta poco para que vuelva y lo primer que quiero hacer es verte a vos y a los demas, por ahi sueño con vos y con los demas y se siente tan raro despertarse confundido y ver que estas muy lejos de casa, es horrible saber que la pasas mal y que no puedo nsiquiera juntarme un finde para darte un abrazo, pero me quedo tranquilo sabiendo que cada vez falta menos, y ojala estes preparando las piernas para caminar como animal. sigo teniendo las mismas ganas de verte y espero vos tambien quieras verme. espero me quieras en general no?.. no???? Cuestión que: "No sé qué está pasando con vos, y simplemente pasa que tengo ganas de verte".</p>
+        </div>
+    </section>
+
+    <!-- 🖼️ VENTANA MODAL PARA LOS RECUERDOS (Foto arriba, texto abajo) -->
+    <div id="modalRecuerdo" class="modal-overlay hidden" onclick="cerrarRecuerdoFuera(event)">
+        <div class="modal-content">
+            <button class="modal-cerrar" onclick="cerrarRecuerdo()">✕</button>
+            <div class="modal-body">
+                <div class="modal-foto-container">
+                    <img id="modal-img" src="" alt="Foto en grande">
+                </div>
+                <div class="modal-texto-container">
+                    <h3 id="modal-titulo" style="color: var(--accent-color); margin-bottom: 12px;"></h3>
+                    <p id="modal-desc" style="line-height: 1.8; text-align: left; white-space: pre-line; font-size: 0.95rem;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- 📂 SECCIÓN 3: RECORDATORIOS (Generador Interactivo + Contador) -->
+    <section id="seccion-tres" class="sub-screen hidden">
+        <button class="btn-back" onclick="volverAlInicio()">← Volver</button>
+        <div class="content-box" style="max-width: 500px; padding: 45px 30px;">
+            <h2 style="margin-bottom: 15px; color: var(--accent-color);">Un recordatorio para hoy ⭐</h2>
+            <p style="font-size: 1rem; opacity: 0.8; margin-bottom: 30px;">Tocá el botón de abajo cada vez que necesites leer algo lindo.</p>
+
+            <div id="caja-frase" style="background: rgba(255, 255, 255, 0.05); border: 1px dashed var(--card-border); padding: 25px; border-radius: 16px; min-height: 100px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; line-height: 1.6; font-style: italic; margin-bottom: 25px; transition: opacity 0.2s ease;">
+                "sos divina ✨"
+            </div>
+
+            <button id="btn-nueva-frase" style="background: var(--accent-color); border: none; color: #fff; padding: 12px 25px; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 0.95rem; box-shadow: 0 5px 15px rgba(255, 121, 198, 0.3); transition: transform 0.2s ease; margin-bottom: 35px;">
+                ✨ Ver otro mensaje
+            </button>
+
+            <!-- ⏳ CONTADOR "TIEMPO SIN VERNOS" -->
+            <div style="border-top: 1px solid var(--card-border); padding-top: 25px; width: 100%;">
+                <h3 style="font-size: 0.95rem; text-transform: lowercase; opacity: 0.8; margin-bottom: 12px; letter-spacing: 1px;">tiempo sin vernos</h3>
+                <div id="contador-tiempo" style="font-size: 0.9rem; font-weight: 600; line-height: 1.6; color: var(--accent-color);">
+                    Calculando...
+                </div>
+            </div>
+        </div>
+
+        <!-- 🎁 GRID DE WIDGETS EXTRA -->
+        <div class="widgets-wrap">
+
+            <!-- 💭 SELECTOR DE ÁNIMO -->
+            <div class="widget-card">
+                <h3 class="widget-title">¿Cómo estás hoy? 💭</h3>
+                <p class="widget-sub">Elegí el que más se parece a tu día.</p>
+                <div class="mood-options">
+                    <button class="mood-btn" data-mood="genial" title="Genial">😄</button>
+                    <button class="mood-btn" data-mood="bien" title="Bien">🙂</button>
+                    <button class="mood-btn" data-mood="meh" title="Más o menos">😐</button>
+                    <button class="mood-btn" data-mood="mal" title="Mal">😔</button>
+                    <button class="mood-btn" data-mood="pesimo" title="Pésimo">😢</button>
+                </div>
+                <p id="mood-response" class="widget-response"></p>
+            </div>
+
+            <!-- 🎡 RULETA DE MIMOS -->
+            <div class="widget-card ruleta-card">
+                <h3 class="widget-title">Ruleta de mimos 🎡</h3>
+                <p class="widget-sub">Girala y recibí un mimito random.</p>
+                <div class="ruleta-wrap">
+                    <div class="ruleta-pointer">▼</div>
+                    <div class="ruleta" id="ruleta">
+                        <span style="--i:0">✨</span>
+                        <span style="--i:1">🧃</span>
+                        <span style="--i:2">🏐</span>
+                        <span style="--i:3">💌</span>
+                        <span style="--i:4">🎶</span>
+                        <span style="--i:5">🌸</span>
+                        <span style="--i:6">🤗</span>
+                        <span style="--i:7">⭐</span>
+                    </div>
+                </div>
+                <button class="widget-btn" id="btn-ruleta">Girar</button>
+                <p id="ruleta-response" class="widget-response"></p>
+            </div>
+
+            <!-- 🫁 RESPIRACIÓN GUIADA -->
+            <div class="widget-card">
+                <h3 class="widget-title">Un respiro 🫁</h3>
+                <p class="widget-sub">Seguí el círculo con la respiración.</p>
+                <div class="respiracion-circle" id="respiracion-circle">
+                    <span id="respiracion-texto">Empezar</span>
+                </div>
+                <button class="widget-btn" id="btn-respirar">Iniciar ejercicio</button>
+            </div>
+
+            <!-- ✅ CHECKLIST DE AUTOCUIDADO -->
+            <div class="widget-card">
+                <h3 class="widget-title">Chequeo de hoy ✅</h3>
+                <p class="widget-sub">Marcá lo que hiciste hoy por vos.</p>
+                <div class="checklist" id="checklist">
+                    <label class="check-item"><input type="checkbox" data-idx="0"><span>Tomé agua 💧</span></label>
+                    <label class="check-item"><input type="checkbox" data-idx="1"><span>Comí algo rico 🍎</span></label>
+                    <label class="check-item"><input type="checkbox" data-idx="2"><span>Dormí bien 😴</span></label>
+                    <label class="check-item"><input type="checkbox" data-idx="3"><span>Sonreí hoy 🙂</span></label>
+                </div>
+                <p class="widget-response" id="racha-texto">🔥 Racha: 0 días</p>
+            </div>
+
+            <!-- 📓 DIARIO RÁPIDO -->
+            <div class="widget-card">
+                <h3 class="widget-title">Diario rápido 📓</h3>
+                <p class="widget-sub">Contá cómo estuvo tu día, queda guardado acá.</p>
+                <textarea id="diario-input" class="widget-textarea" placeholder="Hoy..." rows="3"></textarea>
+                <button class="widget-btn" id="btn-diario">Guardar</button>
+                <div class="widget-list custom-scroll" id="diario-lista"></div>
+            </div>
+
+            <!-- 🙏 LISTA DE GRATITUD -->
+            <div class="widget-card">
+                <h3 class="widget-title">Cositas lindas de hoy 🙏</h3>
+                <p class="widget-sub">Sumá algo por lo que estés agradecida.</p>
+                <div class="widget-input-row">
+                    <input type="text" id="gratitud-input" class="widget-input" placeholder="Ej: un buen café ☕">
+                    <button class="widget-btn small" id="btn-gratitud">Agregar</button>
+                </div>
+                <div class="widget-list custom-scroll" id="gratitud-lista"></div>
+            </div>
+
+            <!-- 🤗 CAJA DE ABRAZOS -->
+            <div class="widget-card abrazo-card" id="abrazo-card">
+                <h3 class="widget-title">Caja de abrazos 🤗</h3>
+                <p class="widget-sub">Tocá el botón cuando necesites uno.</p>
+                <button class="widget-btn" id="btn-abrazo">Mandar abrazo</button>
+                <p id="abrazo-response" class="widget-response"></p>
+            </div>
+
+            <!-- 🎮 MINI JUEGO ATRAPA CORAZONES -->
+            <div class="widget-card">
+                <h3 class="widget-title">Atrapá los corazones 🎮</h3>
+                <p class="widget-sub">15 segundos, tocá todos los que puedas.</p>
+                <div class="juego-area" id="juego-area">
+                    <div class="juego-overlay" id="juego-overlay">
+                        <button class="widget-btn" id="btn-juego">Jugar</button>
+                    </div>
+                </div>
+                <p class="widget-response" id="juego-score">Puntos: 0</p>
+            </div>
+
+            <!-- 💌 CARTA SORPRESA -->
+            <div class="widget-card carta-card">
+                <h3 class="widget-title">Carta sorpresa 💌</h3>
+                <p class="widget-sub">Abrí el sobre cuando quieras.</p>
+                <div class="sobre" id="sobre">
+                    <span id="sobre-icono">✉️</span>
+                </div>
+                <div class="carta-texto hidden" id="carta-texto">
+                    Si estás leyendo esto es porque abriste el sobre, y me alegra un montón. Quería que sepas que pensar en vos siempre me saca una sonrisa, que admiro un montón cómo sos, y que por más lejos que estemos, para mí siempre vas a tener un lugar re importante. Gracias por existir y por dejarme ser parte de tu vida. Te quiero muchísimo. 💕
+                </div>
+            </div>
+
+            <!-- 🌠 LLUVIA DE ESTRELLAS -->
+            <div class="widget-card cielo-card">
+                <h3 class="widget-title">Lluvia de estrellas 🌠</h3>
+                <p class="widget-sub">Tocá el cielo para pedir un deseo.</p>
+                <div class="cielo-wrap">
+                    <canvas id="cielo-canvas"></canvas>
+                </div>
+                <p class="widget-response" id="cielo-response"></p>
+            </div>
+
+            <!-- 🃏 TARJETA PIROPO -->
+            <div class="widget-card">
+                <h3 class="widget-title">Tarjeta sorpresa 🃏</h3>
+                <p class="widget-sub">Dale vuelta para ver qué te tocó.</p>
+                <div class="flip-card" id="flip-card">
+                    <div class="flip-inner" id="flip-inner">
+                        <div class="flip-front">Tocá acá 👆</div>
+                        <div class="flip-back" id="flip-back-text"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🎨 PIZARRA PARA DIBUJAR -->
+            <div class="widget-card">
+                <h3 class="widget-title">Dejame un dibujito 🎨</h3>
+                <p class="widget-sub">Dibujá con el dedo o el mouse.</p>
+                <div class="pizarra-wrap">
+                    <canvas id="pizarra-canvas"></canvas>
+                </div>
+                <div class="pizarra-controles">
+                    <button class="color-swatch" data-color="#ff79c6" style="background:#ff79c6"></button>
+                    <button class="color-swatch" data-color="#bd93f9" style="background:#bd93f9"></button>
+                    <button class="color-swatch" data-color="#8be9fd" style="background:#8be9fd"></button>
+                    <button class="color-swatch" data-color="#ffffff" style="background:#ffffff"></button>
+                    <button class="widget-btn small" id="btn-limpiar-pizarra">Limpiar</button>
+                </div>
+            </div>
+
+            <!-- 🧠 MEMORAMA DE CORAZONES -->
+            <div class="widget-card">
+                <h3 class="widget-title">Memorama de corazones 🧠</h3>
+                <p class="widget-sub">Encontrá las parejas.</p>
+                <div class="memorama-grid" id="memorama-grid"></div>
+                <p class="widget-response" id="memorama-estado">Movimientos: 0</p>
+                <button class="widget-btn small" id="btn-memorama-reset">Reiniciar</button>
+            </div>
+
+            <!-- 🎧 CANCIÓN SEGÚN TU HUMOR -->
+            <div class="widget-card">
+                <h3 class="widget-title">Una canción para hoy 🎧</h3>
+                <p class="widget-sub">Elegí tu humor y te recomiendo un tema.</p>
+                <div class="mood-options">
+                    <button class="cancion-mood-btn" data-mood="genial" title="Genial">😄</button>
+                    <button class="cancion-mood-btn" data-mood="bien" title="Bien">🙂</button>
+                    <button class="cancion-mood-btn" data-mood="nostalgia" title="Nostalgia">🌙</button>
+                    <button class="cancion-mood-btn" data-mood="bajon" title="Bajón">😔</button>
+                </div>
+                <p class="widget-response" id="cancion-response"></p>
+            </div>
+
+            <!-- ❓ PREGUNTAS PARA CONOCERNOS MEJOR -->
+            <div class="widget-card">
+                <h3 class="widget-title">Para conocernos mejor ❓</h3>
+                <p class="widget-sub">Una pregunta random para pensar o contestarme.</p>
+                <p class="widget-response" id="pregunta-texto">Tocá el botón para tu primera pregunta.</p>
+                <button class="widget-btn" id="btn-pregunta">Otra pregunta</button>
+            </div>
+
+            <!-- ⏱️ MINUTO DE CALMA -->
+            <div class="widget-card">
+                <h3 class="widget-title">Un minuto de calma ⏱️</h3>
+                <p class="widget-sub">60 segundos para bajar un cambio.</p>
+                <div class="minuto-barra-wrap">
+                    <div class="minuto-barra" id="minuto-barra"></div>
+                </div>
+                <button class="widget-btn" id="btn-minuto">Empezar</button>
+                <p class="widget-response" id="minuto-texto"></p>
+            </div>
+
+            <!-- ✉️ CÁPSULA DEL TIEMPO -->
+            <div class="widget-card">
+                <h3 class="widget-title">Cápsula del tiempo ✉️</h3>
+                <p class="widget-sub">Escribile algo a la Valentina del futuro.</p>
+                <textarea id="capsula-input" class="widget-textarea" placeholder="Querida yo del futuro..." rows="3"></textarea>
+                <button class="widget-btn" id="btn-capsula">Guardar cápsula</button>
+                <div class="widget-list custom-scroll" id="capsula-lista"></div>
+            </div>
+
+            <!-- 🎲 TIRADA DE DADOS DEL DÍA -->
+            <div class="widget-card">
+                <h3 class="widget-title">Tirada del día 🎲</h3>
+                <p class="widget-sub">Tocá para tu combo random de hoy.</p>
+                <div class="dado-display" id="dado-display">🎲✨🎲</div>
+                <button class="widget-btn" id="btn-dado">Tirar</button>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
