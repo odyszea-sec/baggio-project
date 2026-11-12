@@ -624,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const q = buscador.value.trim().toLowerCase();
         let visibles = 0;
         lista.querySelectorAll('.tema').forEach((li) => {
-            const ok = !q || li.dataset.busqueda.includes(q);
+            const ok = !q || li.dataset.busqueda.includes(q)
             li.classList.toggle('hidden', !ok);
             if (ok) visibles++;
         });
