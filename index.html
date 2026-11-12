@@ -2,65 +2,73 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0f14">
     <title>Para mi Lalen✨</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Capa para la foto de fondo con blur -->
     <div class="background-overlay"></div>
+    <canvas id="estrellas" aria-hidden="true"></canvas>
 
-    <!-- Audio global -->
-    <audio id="audio-principal" loop></audio>
+    <audio id="audio-principal" preload="auto"></audio>
 
-    <!-- 📱 MINI REPRODUCTOR GLOBAL (Soporta de 1 a 6 canciones) -->
+    <!-- 📱 REPRODUCTOR GLOBAL -->
     <div class="player-iphone-global">
         <img src="portada.jpg" alt="Portada" class="album-art" id="album-art">
+        <div class="eq" aria-hidden="true"><i></i><i></i><i></i></div>
         <div class="track-info">
             <h3 class="track-title" id="track-title">DtMF</h3>
             <p class="track-artist" id="track-artist">Bad Bunny</p>
         </div>
         <div class="player-controls">
-            <button class="control-btn" id="btn-prev">⏮</button>
-            <button class="play-btn" id="btn-play">▶</button>
-            <button class="control-btn" id="btn-next">⏭</button>
+            <button class="control-btn" id="btn-prev" aria-label="Canción anterior">⏮</button>
+            <button class="play-btn" id="btn-play" aria-label="Reproducir o pausar">▶</button>
+            <button class="control-btn" id="btn-next" aria-label="Siguiente canción">⏭</button>
         </div>
+        <div class="progress" id="progress" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
     </div>
 
-    <!-- 🏠 PANTALLA DE INICIO -->
+    <!-- 🏠 INICIO -->
     <main class="container" id="inicio-screen">
         <section class="hero">
+            <p class="saludo" id="saludo">para vos ✨</p>
             <h1 class="title">no sos <span class="rainbow-text">invisible</span> para mi</h1>
             <p class="subtitle">select an option</p>
         </section>
 
         <section class="main-buttons">
-            <button class="menu-btn" onclick="abrirSeccion('seccion-uno')">
+            <button class="menu-btn" data-abrir="seccion-uno">
                 <span class="icon">✨</span>
                 <span class="text">pedacito de estrella</span>
             </button>
-            <button class="menu-btn" onclick="abrirSeccion('recuerdos-screen')">
+            <button class="menu-btn" data-abrir="recuerdos-screen">
                 <span class="icon">📸</span>
                 <span class="text">Cosas que me recuerdan a vos</span>
             </button>
-            <button class="menu-btn" onclick="abrirSeccion('seccion-tres')">
+            <button class="menu-btn" data-abrir="seccion-tres">
                 <span class="icon">⭐</span>
                 <span class="text">Un recordatorio para hoy</span>
             </button>
         </section>
+
+        <p class="firma">hecho con cariño para vos 🤍</p>
+
+        <div class="flotantes" aria-hidden="true">
+            <img class="f f1" src="flor.png" alt="">
+            <img class="f f2" src="pelota.png" alt="">
+            <img class="f f3" src="baggio.png" alt="">
+        </div>
     </main>
 
-    <!-- 📂 SECCIÓN 1: PARA VOS (Con florcita en la esquina) -->
+    <!-- 📂 SECCIÓN 1 -->
     <section id="seccion-uno" class="sub-screen hidden">
-        <button class="btn-back" onclick="volverAlInicio()">← Volver</button>
-        <div class="content-box" style="position: relative; padding-top: 50px;">
-
-            <!-- 🌸 FLORCITA EN HD -->
-            <img src="flor.png" alt="Flor" style="position: absolute; top: -25px; left: -25px; width: 70px; height: 70px; object-fit: contain;">
-
-            <h2 style="margin-bottom: 25px; color: var(--accent-color);">partecita de un astro ✨</h2>
-            <p style="line-height: 1.8; text-align: left; margin-bottom: 15px; white-space: pre-line;">Hablar de valentina es complicado, no porque sea dificil de entender si no porque intentar explicar con palabras a las personas asi
+        <button class="btn-back" data-volver>← Volver</button>
+        <div class="content-box wide">
+            <img class="deco deco-tl" src="flor.png" alt="">
+            <h2 class="box-title">partecita de un astro ✨</h2>
+            <p class="long-text">Hablar de valentina es complicado, no porque sea dificil de entender si no porque intentar explicar con palabras a las personas asi
 se siente casi como una injusticia a lo que genera.
 alguien tan directo como yo, conoce casi todas sus partes y formas de reaccionar, yo la he visto enojada, feliz, tranquila, inquieta, nerviosa, indiferente, en extasiss, la conozco bastante y puedo decir con certeza total que es de las personas con menos maldad que existen, faltante total de maldad. eso no quiere decir que ella aveces no se exalte y te pegue un grito, si no que quiere decir que no lo hara con la intencion de lastimarte, no puede, y si pudiera se arrepentiria.
 
@@ -85,339 +93,102 @@ Gracias por la entrevista señor plantin.
 hola?? estoy hablando solo?
 
 
-PORQUE EL GOBIERN-
-
-</p>
+PORQUE EL GOBIERN-</p>
         </div>
     </section>
 
-    <!-- 📂 SECCIÓN 2: RECUERDOS (Con sus Polaroids flotantes) -->
+    <!-- 📂 SECCIÓN 2: RECUERDOS -->
     <section id="recuerdos-screen" class="sub-screen hidden">
-        <button class="btn-back" onclick="volverAlInicio()">← Volver</button>
+        <button class="btn-back" data-volver>← Volver</button>
 
-        <!-- Contenedor de las Polaroids Flotantes (Lados) -->
         <div class="polaroids-container">
-            <!-- Izquierda (2 fotos) -->
-            <div class="polaroid-lateral izq p-1" onclick="abrirRecuerdo(1)">
-                <img src="foto1.jpg" alt="Recuerdo 1">
-                <span>Recuerdo #1 📌</span>
+            <div class="polaroid-lateral izq p-1" data-recuerdo="1" role="button" tabindex="0">
+                <img src="foto1.jpg" alt="Recuerdo 1"><span>Recuerdo #1 📌</span>
             </div>
-            <div class="polaroid-lateral izq p-2" onclick="abrirRecuerdo(2)">
-                <img src="foto2.jpg" alt="Recuerdo 2">
-                <span>Recuerdo #2 📌</span>
+            <div class="polaroid-lateral izq p-2" data-recuerdo="2" role="button" tabindex="0">
+                <img src="foto2.jpg" alt="Recuerdo 2"><span>Recuerdo #2 📌</span>
             </div>
-
-            <!-- Derecha (3 fotos) -->
-            <div class="polaroid-lateral der p-3" onclick="abrirRecuerdo(3)">
-                <img src="foto3.jpg" alt="Recuerdo 3">
-                <span>Recuerdo #3 📌</span>
+            <div class="polaroid-lateral der p-3" data-recuerdo="3" role="button" tabindex="0">
+                <img src="foto3.jpg" alt="Recuerdo 3"><span>Recuerdo #3 📌</span>
             </div>
-            <div class="polaroid-lateral der p-4" onclick="abrirRecuerdo(4)">
-                <img src="foto4.jpg" alt="Recuerdo 4">
-                <span>Recuerdo #4 📌</span>
+            <div class="polaroid-lateral der p-4" data-recuerdo="4" role="button" tabindex="0">
+                <img src="foto4.jpg" alt="Recuerdo 4"><span>Recuerdo #4 📌</span>
             </div>
-            <div class="polaroid-lateral der p-5" onclick="abrirRecuerdo(5)">
-                <img src="foto5.jpg" alt="Recuerdo 5">
-                <span>Recuerdo #5 📌</span>
+            <div class="polaroid-lateral der p-5" data-recuerdo="5" role="button" tabindex="0">
+                <img src="foto5.jpg" alt="Recuerdo 5"><span>Recuerdo #5 📌</span>
             </div>
         </div>
 
-        <div class="content-box" style="position: relative; max-width: 500px; padding: 45px 30px;">
-            <!-- 🏐 PELOTA DE VÓLEY -->
-            <img src="pelota.png" alt="Pelota" style="position: absolute; top: -25px; left: -25px; width: 65px; height: 65px; object-fit: contain; pointer-events: none;">
+        <div class="content-box medium">
+            <img class="deco deco-tl" src="pelota.png" alt="">
+            <img class="deco deco-br" src="baggio.png" alt="">
 
-            <!-- 🧃 JUGUITO BAGGIO -->
-            <img src="baggio.png" alt="Baggio" style="position: absolute; bottom: -25px; right: -25px; width: 55px; height: 65px; object-fit: contain; pointer-events: none;">
+            <h2 class="box-title">Cosas que me recuerdan a vos 📸</h2>
+            <p class="hint">
+                <span class="hint-desktop">Apoyá el cursor en los bordes de la pantalla para ver las fotos, o primero leé el texto, o hacé lo que quieras.</span>
+                <span class="hint-mobile">Primero leé el texto y después deslizá las polaroids de abajo para ver las fotos, o hacé lo que quieras.</span>
+            </p>
 
-            <h2 style="margin-bottom: 10px; color: var(--accent-color);">Cosas que me recuerdan a vos 📸</h2>
-            <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 25px;">Apoyá el cursor o tocá los bordes de la pantalla para ver las fotos o primero lee el texto que lo actualize, o hace lo que quieras.</p>
-
-            <p style="line-height: 1.8; text-align: left; white-space: pre-line; font-size: 0.95rem;">Hay miles de cosas que me hacen acordar a vos, ya sea en individual o en grupo con las chicas. Hay sensaciones que me traen recuerdos varios de vos siendo vos y es lindo. Aunque ahora que estoy re lejos es medio feo porque te extraño. Ya sean canciones, como todo el álbum DtMF, o algunas de Tan Biónica, Airbag... Cuando pienso en vóley pienso en jugar con vos y con los demás. Hasta la sensación de extrañar se siente como vos, porque vos siempre extrañas, sos muy nostálgica como yo. Cuando camino (una vez cada mil que salgo del psiquiatra) no puedo no imaginar lo lindo que sería que estés vos y los demás. tengo la galeria llena de recuerdos que llevo conmigo en el corazon y que son para mi una curita al alma y un motor para aguantar esto. se que falta poco para que vuelva y lo primer que quiero hacer es verte a vos y a los demas, por ahi sueño con vos y con los demas y se siente tan raro despertarse confundido y ver que estas muy lejos de casa, es horrible saber que la pasas mal y que no puedo nsiquiera juntarme un finde para darte un abrazo, pero me quedo tranquilo sabiendo que cada vez falta menos, y ojala estes preparando las piernas para caminar como animal. sigo teniendo las mismas ganas de verte y espero vos tambien quieras verme. espero me quieras en general no?.. no???? Cuestión que: "No sé qué está pasando con vos, y simplemente pasa que tengo ganas de verte".</p>
+            <p class="long-text">Hay miles de cosas que me hacen acordar a vos, ya sea en individual o en grupo con las chicas. Hay sensaciones que me traen recuerdos varios de vos siendo vos y es lindo. Aunque ahora que estoy re lejos es medio feo porque te extraño. Ya sean canciones, como todo el álbum DtMF, o algunas de Tan Biónica, Airbag... Cuando pienso en vóley pienso en jugar con vos y con los demás. Hasta la sensación de extrañar se siente como vos, porque vos siempre extrañas, sos muy nostálgica como yo. Cuando camino (una vez cada mil que salgo del psiquiatra) no puedo no imaginar lo lindo que sería que estés vos y los demás. tengo la galeria llena de recuerdos que llevo conmigo en el corazon y que son para mi una curita al alma y un motor para aguantar esto. se que falta poco para que vuelva y lo primer que quiero hacer es verte a vos y a los demas, por ahi sueño con vos y con los demas y se siente tan raro despertarse confundido y ver que estas muy lejos de casa, es horrible saber que la pasas mal y que no puedo nsiquiera juntarme un finde para darte un abrazo, pero me quedo tranquilo sabiendo que cada vez falta menos, y ojala estes preparando las piernas para caminar como animal. sigo teniendo las mismas ganas de verte y espero vos tambien quieras verme. espero me quieras en general no?.. no???? Cuestión que: "No sé qué está pasando con vos, y simplemente pasa que tengo ganas de verte".</p>
         </div>
     </section>
 
-    <!-- 🖼️ VENTANA MODAL PARA LOS RECUERDOS (Foto arriba, texto abajo) -->
-    <div id="modalRecuerdo" class="modal-overlay hidden" onclick="cerrarRecuerdoFuera(event)">
+    <!-- 🔍 MODAL DE RECUERDOS -->
+    <div id="modalRecuerdo" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
         <div class="modal-content">
-            <button class="modal-cerrar" onclick="cerrarRecuerdo()">✕</button>
+            <button class="modal-cerrar" id="modal-cerrar" aria-label="Cerrar">✕</button>
             <div class="modal-body">
                 <div class="modal-foto-container">
                     <img id="modal-img" src="" alt="Foto en grande">
                 </div>
                 <div class="modal-texto-container">
-                    <h3 id="modal-titulo" style="color: var(--accent-color); margin-bottom: 12px;"></h3>
-                    <p id="modal-desc" style="line-height: 1.8; text-align: left; white-space: pre-line; font-size: 0.95rem;"></p>
+                    <h3 id="modal-titulo"></h3>
+                    <p id="modal-desc"></p>
                 </div>
             </div>
         </div>
     </div>
 
-<!-- 📂 SECCIÓN 3: RECORDATORIOS (Generador Interactivo + Contador) -->
+    <!-- 📂 SECCIÓN 3: RECORDATORIOS -->
     <section id="seccion-tres" class="sub-screen hidden">
-        <button class="btn-back" onclick="volverAlInicio()">← Volver</button>
-        <div class="content-box" style="max-width: 500px; padding: 45px 30px;">
-            <h2 style="margin-bottom: 15px; color: var(--accent-color);">Un recordatorio para hoy ⭐</h2>
-            <p style="font-size: 1rem; opacity: 0.8; margin-bottom: 30px;">Tocá el botón de abajo cada vez que necesites leer algo lindo.</p>
+        <button class="btn-back" data-volver>← Volver</button>
+        <div class="content-box medium">
+            <h2 class="box-title">Un recordatorio para hoy ⭐</h2>
+            <p class="hint">Tocá el botón de abajo cada vez que necesites leer algo lindo.</p>
 
-            <div id="caja-frase" style="background: rgba(255, 255, 255, 0.05); border: 1px dashed var(--card-border); padding: 25px; border-radius: 16px; min-height: 100px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; line-height: 1.6; font-style: italic; margin-bottom: 25px; transition: opacity 0.2s ease;">
-                "sos divina ✨"
-            </div>
+            <div id="caja-frase" class="caja-frase" aria-live="polite">"sos divina ✨"</div>
 
-            <button id="btn-nueva-frase" style="background: var(--accent-color); border: none; color: #fff; padding: 12px 25px; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 0.95rem; box-shadow: 0 5px 15px rgba(255, 121, 198, 0.3); transition: transform 0.2s ease; margin-bottom: 35px;">
-                ✨ Ver otro mensaje
-            </button>
+            <button id="btn-nueva-frase" class="btn-frase">✨ Ver otro mensaje</button>
+            <button class="btn-playlist" data-abrir="playlist-screen">🎧 playlist para vos</button>
 
-            <!-- ⏳ CONTADOR "TIEMPO SIN VERNOS" -->
-            <div style="border-top: 1px solid var(--card-border); padding-top: 25px; width: 100%;">
-                <h3 style="font-size: 0.95rem; text-transform: lowercase; opacity: 0.8; margin-bottom: 12px; letter-spacing: 1px;">tiempo sin vernos</h3>
-                <div id="contador-tiempo" style="font-size: 0.9rem; font-weight: 600; line-height: 1.6; color: var(--accent-color);">
-                    Calculando...
-                </div>
+            <!-- ⏳ TIEMPO SIN VERNOS (desde el 4 de octubre) -->
+            <div class="contador-wrap">
+                <h3>tiempo sin vernos</h3>
+                <div id="contador-tiempo">Calculando...</div>
             </div>
         </div>
+    </section>
 
-        <!-- 🎁 GRID DE WIDGETS EXTRA -->
-        <div class="widgets-wrap">
+        <!-- 🎧 PLAYLIST -->
+    <section id="playlist-screen" class="sub-screen hidden">
+        <button class="btn-back" data-volver>← Volver</button>
+        <div class="content-box playlist-box">
+            <div class="disco" aria-hidden="true"></div>
+            <h2 class="box-title">playlist para vos 🎧</h2>
+            <p class="hint">al tocar un tema se explica el porqué ✨</p>
 
-            <!-- 💭 SELECTOR DE ÁNIMO -->
-            <div class="widget-card">
-                <h3 class="widget-title">¿Cómo estás hoy? 💭</h3>
-                <p class="widget-sub">Elegí el que más se parece a tu día.</p>
-                <div class="mood-options">
-                    <button class="mood-btn" data-mood="genial" title="Genial">😄</button>
-                    <button class="mood-btn" data-mood="bien" title="Bien">🙂</button>
-                    <button class="mood-btn" data-mood="meh" title="Más o menos">😐</button>
-                    <button class="mood-btn" data-mood="mal" title="Mal">😔</button>
-                    <button class="mood-btn" data-mood="pesimo" title="Pésimo">😢</button>
-                </div>
-                <p id="mood-response" class="widget-response"></p>
+            <a class="btn-spotify" href="https://open.spotify.com/playlist/5UjXZa0ziVBtqCOtRLrMeL" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1DB954"/><path d="M5.5 9.2c4.2-1.2 9-.9 13 1.2M6.3 12.5c3.5-1 7.4-.7 10.5 1M7 15.5c2.8-.8 5.6-.5 8.3.8" stroke="#0f0f14" stroke-width="1.7" stroke-linecap="round" fill="none"/></svg>
+                abrir en Spotify
+            </a>
+
+            <div class="buscador">
+                <input id="buscar-tema" type="search" placeholder="buscar un tema o artista..." autocomplete="off" aria-label="Buscar en la playlist">
+                <small id="cuenta-temas"></small>
             </div>
 
-     <!-- 🎡 RULETA DE MIMOS -->
-<div class="widget-card ruleta-card">
-    <h3 class="widget-title">Ruleta de mimos 🎡</h3>
-    <p class="widget-sub">Girala y recibí un mimito random.</p>
-    <div class="ruleta-wrap">
-        <div class="ruleta-pointer">▼</div>
-        <svg class="ruleta" id="ruleta" viewBox="0 0 200 200">
-            <!-- Gajo 0 -->
-            <g transform="rotate(0, 100, 100)">
-                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#ff79c6"/>
-                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">✨</text>
-            </g>
-            <!-- Gajo 1 -->
-            <g transform="rotate(45, 100, 100)">
-                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#bd93f9"/>
-                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">🧃</text>
-            </g>
-            <!-- Gajo 2 -->
-            <g transform="rotate(90, 100, 100)">
-                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#8be9fd"/>
-                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">🏐</text>
-            </g>
-            <!-- Gajo 3 -->
-            <g transform="rotate(135, 100, 100)">
-                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#ff5555"/>
-                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">💌</text>
-            </g>
-            <!-- Gajo 4 -->
-            <g transform="rotate(180, 100, 100)">
-                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#ff79c6"/>
-                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">🎶</text>
-            </g>
-            <!-- Gajo 5 -->
-            <g transform="rotate(225, 100, 100)">
-                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#bd93f9"/>
-                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">🌸</text>
-            </g>
-            <!-- Gajo 6 -->
-            <g transform="rotate(270, 100, 100)">
-                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#8be9fd"/>
-                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">🤗</text>
-            </g>
-            <!-- Gajo 7 -->
-            <g transform="rotate(315, 100, 100)">
-                <path d="M 100,100 L 100,0 A 100,100 0 0,1 170.71,29.29 Z" fill="#ff5555"/>
-                <text x="138" y="45" font-size="16" text-anchor="middle" dominant-baseline="central">⭐</text>
-            </g>
-        </svg>
-    </div>
-</div>
-                <button class="widget-btn" id="btn-ruleta">Girar</button>
-                <p id="ruleta-response" class="widget-response"></p>
-            </div>
-
-            <!-- 🫁 RESPIRACIÓN GUIADA -->
-            <div class="widget-card">
-                <h3 class="widget-title">Un respiro 🫁</h3>
-                <p class="widget-sub">Seguí el círculo con la respiración.</p>
-                <div class="respiracion-circle" id="respiracion-circle">
-                    <span id="respiracion-texto">Empezar</span>
-                </div>
-                <button class="widget-btn" id="btn-respirar">Iniciar ejercicio</button>
-            </div>
-
-            <!-- ✅ CHECKLIST DE AUTOCUIDADO -->
-            <div class="widget-card">
-                <h3 class="widget-title">Chequeo de hoy ✅</h3>
-                <p class="widget-sub">Marcá lo que hiciste hoy por vos.</p>
-                <div class="checklist" id="checklist">
-                    <label class="check-item"><input type="checkbox" data-idx="0"><span>Tomé agua 💧</span></label>
-                    <label class="check-item"><input type="checkbox" data-idx="1"><span>Comí algo rico 🍎</span></label>
-                    <label class="check-item"><input type="checkbox" data-idx="2"><span>Dormí bien 😴</span></label>
-                    <label class="check-item"><input type="checkbox" data-idx="3"><span>Sonreí hoy 🙂</span></label>
-                </div>
-                <p class="widget-response" id="racha-texto">🔥 Racha: 0 días</p>
-            </div>
-
-            <!-- 📓 DIARIO RÁPIDO -->
-            <div class="widget-card">
-                <h3 class="widget-title">Diario rápido 📓</h3>
-                <p class="widget-sub">Contá cómo estuvo tu día, queda guardado acá.</p>
-                <textarea id="diario-input" class="widget-textarea" placeholder="Hoy..." rows="3"></textarea>
-                <button class="widget-btn" id="btn-diario">Guardar</button>
-                <div class="widget-list custom-scroll" id="diario-lista"></div>
-            </div>
-
-            <!-- 🙏 LISTA DE GRATITUD -->
-            <div class="widget-card">
-                <h3 class="widget-title">Cositas lindas de hoy 🙏</h3>
-                <p class="widget-sub">Sumá algo por lo que estés agradecida.</p>
-                <div class="widget-input-row">
-                    <input type="text" id="gratitud-input" class="widget-input" placeholder="Ej: un buen café ☕">
-                    <button class="widget-btn small" id="btn-gratitud">Agregar</button>
-                </div>
-                <div class="widget-list custom-scroll" id="gratitud-lista"></div>
-            </div>
-
-            <!-- 🤗 CAJA DE ABRAZOS -->
-            <div class="widget-card abrazo-card" id="abrazo-card">
-                <h3 class="widget-title">Caja de abrazos 🤗</h3>
-                <p class="widget-sub">Tocá el botón cuando necesites uno.</p>
-                <button class="widget-btn" id="btn-abrazo">Mandar abrazo</button>
-                <p id="abrazo-response" class="widget-response"></p>
-            </div>
-
-            <!-- 🎮 MINI JUEGO ATRAPA CORAZONES -->
-            <div class="widget-card">
-                <h3 class="widget-title">Atrapá los corazones 🎮</h3>
-                <p class="widget-sub">15 segundos, tocá todos los que puedas.</p>
-                <div class="juego-area" id="juego-area">
-                    <div class="juego-overlay" id="juego-overlay">
-                        <button class="widget-btn" id="btn-juego">Jugar</button>
-                    </div>
-                </div>
-                <p class="widget-response" id="juego-score">Puntos: 0</p>
-            </div>
-
-            <!-- 💌 CARTA SORPRESA -->
-            <div class="widget-card carta-card">
-                <h3 class="widget-title">Carta sorpresa 💌</h3>
-                <p class="widget-sub">Abrí el sobre cuando quieras.</p>
-                <div class="sobre" id="sobre">
-                    <span id="sobre-icono">✉️</span>
-                </div>
-                <div class="carta-texto hidden" id="carta-texto">
-                    Si estás leyendo esto es porque abriste el sobre, y me alegra un montón. Quería que sepas que pensar en vos siempre me saca una sonrisa, que admiro un montón cómo sos, y que por más lejos que estemos, para mí siempre vas a tener un lugar re importante. Gracias por existir y por dejarme ser parte de tu vida. Te quiero muchísimo. 💕
-                </div>
-            </div>
-
-            <!-- 🌠 LLUVIA DE ESTRELLAS -->
-            <div class="widget-card cielo-card">
-                <h3 class="widget-title">Lluvia de estrellas 🌠</h3>
-                <p class="widget-sub">Tocá el cielo para pedir un deseo.</p>
-                <div class="cielo-wrap">
-                    <canvas id="cielo-canvas"></canvas>
-                </div>
-                <p class="widget-response" id="cielo-response"></p>
-            </div>
-
-            <!-- 🃏 TARJETA PIROPO -->
-            <div class="widget-card">
-                <h3 class="widget-title">Tarjeta sorpresa 🃏</h3>
-                <p class="widget-sub">Dale vuelta para ver qué te tocó.</p>
-                <div class="flip-card" id="flip-card">
-                    <div class="flip-inner" id="flip-inner">
-                        <div class="flip-front">Tocá acá 👆</div>
-                        <div class="flip-back" id="flip-back-text"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 🎨 PIZARRA PARA DIBUJAR -->
-            <div class="widget-card">
-                <h3 class="widget-title">Dejame un dibujito 🎨</h3>
-                <p class="widget-sub">Dibujá con el dedo o el mouse.</p>
-                <div class="pizarra-wrap">
-                    <canvas id="pizarra-canvas"></canvas>
-                </div>
-                <div class="pizarra-controles">
-                    <button class="color-swatch" data-color="#ff79c6" style="background:#ff79c6"></button>
-                    <button class="color-swatch" data-color="#bd93f9" style="background:#bd93f9"></button>
-                    <button class="color-swatch" data-color="#8be9fd" style="background:#8be9fd"></button>
-                    <button class="color-swatch" data-color="#ffffff" style="background:#ffffff"></button>
-                    <button class="widget-btn small" id="btn-limpiar-pizarra">Limpiar</button>
-                </div>
-            </div>
-
-            <!-- 🧠 MEMORAMA DE CORAZONES -->
-            <div class="widget-card">
-                <h3 class="widget-title">Memorama de corazones 🧠</h3>
-                <p class="widget-sub">Encontrá las parejas.</p>
-                <div class="memorama-grid" id="memorama-grid"></div>
-                <p class="widget-response" id="memorama-estado">Movimientos: 0</p>
-                <button class="widget-btn small" id="btn-memorama-reset">Reiniciar</button>
-            </div>
-
-            <!-- 🎧 CANCIÓN SEGÚN TU HUMOR -->
-            <div class="widget-card">
-                <h3 class="widget-title">Una canción para hoy 🎧</h3>
-                <p class="widget-sub">Elegí tu humor y te recomiendo un tema.</p>
-                <div class="mood-options">
-                    <button class="cancion-mood-btn" data-mood="genial" title="Genial">😄</button>
-                    <button class="cancion-mood-btn" data-mood="bien" title="Bien">🙂</button>
-                    <button class="cancion-mood-btn" data-mood="nostalgia" title="Nostalgia">🌙</button>
-                    <button class="cancion-mood-btn" data-mood="bajon" title="Bajón">😔</button>
-                </div>
-                <p class="widget-response" id="cancion-response"></p>
-            </div>
-
-            <!-- ❓ PREGUNTAS PARA CONOCERNOS MEJOR -->
-            <div class="widget-card">
-                <h3 class="widget-title">Para conocernos mejor ❓</h3>
-                <p class="widget-sub">Una pregunta random para pensar o contestarme.</p>
-                <p class="widget-response" id="pregunta-texto">Tocá el botón para tu primera pregunta.</p>
-                <button class="widget-btn" id="btn-pregunta">Otra pregunta</button>
-            </div>
-
-            <!-- ⏱️ MINUTO DE CALMA -->
-            <div class="widget-card">
-                <h3 class="widget-title">Un minuto de calma ⏱️</h3>
-                <p class="widget-sub">60 segundos para bajar un cambio.</p>
-                <div class="minuto-barra-wrap">
-                    <div class="minuto-barra" id="minuto-barra"></div>
-                </div>
-                <button class="widget-btn" id="btn-minuto">Empezar</button>
-                <p class="widget-response" id="minuto-texto"></p>
-            </div>
-
-            <!-- ✉️ CÁPSULA DEL TIEMPO -->
-            <div class="widget-card">
-                <h3 class="widget-title">Cápsula del tiempo ✉️</h3>
-                <p class="widget-sub">Escribile algo a la Valentina del futuro.</p>
-                <textarea id="capsula-input" class="widget-textarea" placeholder="Querida yo del futuro..." rows="3"></textarea>
-                <button class="widget-btn" id="btn-capsula">Guardar cápsula</button>
-                <div class="widget-list custom-scroll" id="capsula-lista"></div>
-            </div>
-
-            <!-- 🎲 TIRADA DE DADOS DEL DÍA -->
-            <div class="widget-card">
-                <h3 class="widget-title">Tirada del día 🎲</h3>
-                <p class="widget-sub">Tocá para tu combo random de hoy.</p>
-                <div class="dado-display" id="dado-display">🎲✨🎲</div>
-                <button class="widget-btn" id="btn-dado">Tirar</button>
-            </div>
-
+            <ul class="lista-temas" id="lista-temas"></ul>
+            <p class="sin-resultados hidden" id="sin-resultados">no encontré ese tema 🥲</p>
         </div>
     </section>
 
